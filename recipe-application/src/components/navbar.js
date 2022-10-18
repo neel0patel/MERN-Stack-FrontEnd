@@ -46,9 +46,9 @@ const Navbar = () => {
               aria-expanded="true"
               aria-label="Toggle navigation"
             >
-              {/* <Link className="nav-link" to="/recipes"> */}
-              Recipes
-              {/* </Link> */}
+              <Link className="nav-link" to="/recipes">
+                Recipes
+              </Link>
             </li>
             <li
               className="nav-item navbar-toggler"

@@ -18,8 +18,8 @@ const Contact = () => {
             <span className="highlight">Thomas Christian</span>.
           </p>
           <p>
-            We all are aspiring to become software developers in the near
-            future.
+            We all are students aspiring to get into the sofftware development
+            field and become software developers in the near future.
           </p>
           <a href="https://github.com/neel0patel">
             <i className="fab fa-github"> neel0patel</i>
