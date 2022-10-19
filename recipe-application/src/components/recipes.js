@@ -1,35 +1,38 @@
-import Spinner from "../components/spinner";
 import React, { Component } from "react";
+import Spinner from "../components/spinner";
+
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import RecipeForm from "./RecipeForm";
 
-// bind is creating a new function when called and has its "this" keyword set to the made value
 class Recipes extends Component {
   constructor() {
+    // "super()" grants access to methods and properties of a parent or sibling class
     super();
     this.state = {
       recipes: [],
       loading: true,
     };
+    // bind is creating a new function when called and has its "this" keyword set to the made value
     this.fetchAllRecipes = this.fetchAllRecipes.bind(this);
     this.getNewRecipe = this.getNewRecipe.bind(this);
   }
-  // Axios automatically transform the data returned from the server
+  // Axios automatically makes HTTP requests from the browser and handles the transformation of data
   async fetchAllRecipes(endpoint) {
     let result = await Axios.get(endpoint);
     this.setState({ recipes: result.data.recipes, loading: false }, () =>
       console.log("Recipes fetched...", result.data.recipes[1])
     );
   }
-  // this method is going to be passed into the recipeForm component
-  // From within the recipeForm component each newly added recipe will be passed to the method
+  // this method is going to be passed into the RecipeForm component
+  // From within the RecipeForm component each newly added recipe will be passed to the method
   // the new recipe added will be recieved and sent to the array of recipes to be displayed
   getNewRecipe(recipe) {
     this.setState({ recipes: [...this.state.recipes, recipe] });
   }
   // this method executes react code when the component is already in the DOM
   componentDidMount() {
-    this.fetchAllRecipes("http://localhost:3000/api/recipes");
+    this.fetchAllRecipes("http://localhost:3000/recipes");
   }
 
   render() {
@@ -74,7 +77,7 @@ class Recipes extends Component {
               )}
             </div>
           </div>
-          {/* recipeFOrm goes here */}
+          <RecipeForm getNewRecipe={this.getNewRecipe} />
         </div>
       </div>
     );
