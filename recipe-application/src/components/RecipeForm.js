@@ -33,7 +33,8 @@ export default class RecipeForm extends Component {
       this.sendData();
     }, 1000);
   }
-
+  // This method is going to take the image before the data is sent, turn it to a base64 text and save it in the state. After that I'd have...
+  // to post request & save it within the collection; then fetch request, save the data in the state, then display it
   getData(files) {
     let file = document.getElementById("form-image").files[0];
     if (file) {
@@ -54,10 +55,10 @@ export default class RecipeForm extends Component {
           "There was no file selected. Please upload an image or a placeholder will be used instead."
         );
         let question = prompt(
-          "Would you like to upload an image? If so then enter YES else enter NO."
+          "Would you like to upload an image? If so then enter yes else enter no."
         );
 
-        if (question.toLowerCase() === "yes") {
+        if (question === "yes") {
           return;
         } else {
           this.setState({
@@ -91,25 +92,24 @@ export default class RecipeForm extends Component {
       document.getElementById("form-image").value = "";
 
       //Sending data to live server
-      // fetch('http://recipe app from heroku', {
-      //     method: 'post',
-      //     redirect: 'follow',
+      //   fetch("http://localhost:3000/recipes", {
+      //     method: "post",
+      //     redirect: "follow",
       //     headers: {
-      //         'Accept': 'application/json',
-      //         'Content-Type': 'application/json'
+      //       Accept: "application/json",
+      //       "Content-Type": "application/json",
       //     },
       //     //Turning the object to json
       //     body: JSON.stringify({
-      //         title: obj.title,
-      //         image: obj.image,
-      //         duration: obj.duration,
-      //         steps: obj.steps,
-      //         rating: obj.rating
-      //     })
-      // })
-      //     .then((res) => {
-      //         console.log('Data sent!');
-      //     })
+      //       title: obj.title,
+      //       image: obj.image,
+      //       duration: obj.duration,
+      //       steps: obj.steps,
+      //       rating: obj.rating,
+      //     }),
+      //   }).then((res) => {
+      //     console.log("Data sent!");
+      //   });
     }
   }
 

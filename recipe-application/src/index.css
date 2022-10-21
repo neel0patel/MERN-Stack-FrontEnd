@@ -135,7 +135,7 @@ nav .nav-item a:hover {
 
 #recipes-right {
   background-color: white;
-  border: 1px #eb6864 dashed;
+  border: 2px #eb6864 solid;
   width: 60%;
   height: auto;
   float: right;
@@ -267,5 +267,59 @@ nav .nav-item a:hover {
 @media screen and (max-width: "480px") {
   #recipes-para p {
     font-size: 1.4em;
+  }
+}
+/* recipe container*/
+#recipes-container {
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: "480px") {
+  #recipes-container {
+    width: 90%;
+  }
+}
+#recipes-container #recipes-left {
+  background-color: whitesmoke;
+  border: 2px solid;
+  color: black;
+  padding: 10px;
+  width: 30%;
+  height: auto;
+  float: left;
+  overflow: auto;
+}
+@media screen and (max-width: 720px) {
+  #recipes-container #recipes-left {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+#recipes-container #recipes-left #recipes-list-title {
+  text-align: center;
+  padding-bottom: 10px;
+}
+#recipes-container #recipes-left #recipes-list-title h4 {
+  text-decoration-line: underline;
+}
+#recipes-container #recipes-left #recipes-list-container Link {
+  text-decoration: none;
+}
+#recipes-container #recipes-left #recipes-list-container .recipe-item {
+  padding: 10px;
+  background-color: white;
+  color: black;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+#recipes-container #recipes-left #recipes-list-container .recipe-item:hover {
+  background-color: grey;
+  color: white;
+  transition-duration: 0.5s;
+}
+@media (max-width: 720px) {
+  #recipes-container #recipes-right {
+    width: 100%;
+    margin: 0 0 40px 0;
   }
 }

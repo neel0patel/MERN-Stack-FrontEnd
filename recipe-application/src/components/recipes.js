@@ -14,25 +14,31 @@ class Recipes extends Component {
       loading: true,
     };
     // bind is creating a new function when called and has its "this" keyword set to the made value
+
     this.fetchAllRecipes = this.fetchAllRecipes.bind(this);
     this.getNewRecipe = this.getNewRecipe.bind(this);
   }
   // Axios automatically makes HTTP requests from the browser and handles the transformation of data
+
   async fetchAllRecipes(endpoint) {
     let result = await Axios.get(endpoint);
-    this.setState({ recipes: result.data.recipes, loading: false }, () =>
-      console.log("Recipes fetched...", result.data.recipes[1])
+    this.setState({ recipes: result.data, loading: false }, () =>
+      console.log("Recipes fetched...", result.data)
     );
   }
   // this method is going to be passed into the RecipeForm component
   // From within the RecipeForm component each newly added recipe will be passed to the method
   // the new recipe added will be recieved and sent to the array of recipes to be displayed
+
   getNewRecipe(recipe) {
     this.setState({ recipes: [...this.state.recipes, recipe] });
   }
   // this method executes react code when the component is already in the DOM
+
   componentDidMount() {
-    this.fetchAllRecipes("http://localhost:3000/recipes");
+    this.fetchAllRecipes(
+      "https://recipe-backend-mern.herokuapp.com/recipes/all"
+    );
   }
 
   render() {
@@ -55,24 +61,24 @@ class Recipes extends Component {
                 <Spinner />
               ) : (
                 <ul>
-                  {recipes.map((recipe) => (
-                    <Link
-                      key={recipe.id}
-                      to={{
-                        pathname: `/${recipe.id}`,
-                        singleRecipe: `${JSON.stringify(recipe)}`,
-                      }}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <li
-                        className="recipe-item"
-                        value={recipe.title}
-                        onClick={this.fetchRecipe}
+                  {recipes &&
+                    recipes.map((recipe) => (
+                      <Link
+                        key={recipe.id}
+                        to={{
+                          pathname: `/${recipe.id}`,
+                          singleRecipe: `${JSON.stringify(recipe)}`,
+                        }}
                       >
-                        {recipe.title}
-                      </li>
-                    </Link>
-                  ))}
+                        <li
+                          className="recipe-item"
+                          value={recipe.title}
+                          onClick={this.fetchRecipe}
+                        >
+                          {recipe.name}
+                        </li>
+                      </Link>
+                    ))}
                 </ul>
               )}
             </div>

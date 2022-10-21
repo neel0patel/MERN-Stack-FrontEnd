@@ -9,7 +9,7 @@ const Navbar = () => {
           data-toggle="collapse"
           data-target=".navbar-collapse.show"
         >
-          <Link className="navbar-brand" exact to="/">
+          <Link className="navbar-brand" to="/">
             Bon APPetite
           </Link>
         </p>
@@ -31,10 +31,10 @@ const Navbar = () => {
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
               aria-controls="navbarColor01"
-              aria-expanded="true"
+              // aria-expanded="true"
               aria-label="Toggle navigation"
             >
-              <Link className="nav-link" exact to="/">
+              <Link className="nav-link" to="/">
                 Home<span className="sr-only"></span>
               </Link>
             </li>
@@ -43,7 +43,7 @@ const Navbar = () => {
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
               aria-controls="navbarColor01"
-              aria-expanded="true"
+              // aria-expanded="true"
               aria-label="Toggle navigation"
             >
               <Link className="nav-link" to="/recipes">
@@ -55,7 +55,7 @@ const Navbar = () => {
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
               aria-controls="navbarColor01"
-              aria-expanded="true"
+              // aria-expanded="true"
               aria-label="Toggle navigation"
             >
               <Link className="nav-link" to="/about">
@@ -67,7 +67,7 @@ const Navbar = () => {
               data-toggle="collapse"
               data-target=".navbar-collapse.show"
               aria-controls="navbarColor01"
-              aria-expanded="true"
+              // aria-expanded="true"
               aria-label="Toggle navigation"
             >
               <Link className="nav-link" to="/contact">

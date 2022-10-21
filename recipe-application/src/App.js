@@ -5,9 +5,10 @@ import About from "./components/about";
 import Home from "./components/home";
 import Contact from "./components/contact";
 import Recipes from "./components/recipes";
+import recipe from "./components/recipe";
 
-//
 import "./App.css";
+import Recipe from "./components/recipe";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
+          <Route path="/:recipeId" element={<Recipe />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
