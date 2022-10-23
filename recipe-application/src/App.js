@@ -5,10 +5,9 @@ import About from "./components/about";
 import Home from "./components/home";
 import Contact from "./components/contact";
 import Recipes from "./components/recipes";
-import recipe from "./components/recipe";
+import Recipe from "./components/recipe";
 
 import "./App.css";
-import Recipe from "./components/recipe";
 
 function App() {
   return (

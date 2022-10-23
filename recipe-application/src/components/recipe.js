@@ -1,11 +1,21 @@
 // import { urlencoded } from "body-parser";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const Recipe = (props) => {
-  console.log(props);
-  let recipe = JSON.parse(props.location.singleRecipe);
-  console.log("Single recipe", props.location.singleRecipe);
-  console.log(props);
+const Recipe = () => {
+  const { recipeId } = useParams();
+  const [recipe, setRecipe] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const URL = `https://recipe-backend-mern.herokuapp.com/recipes/${recipeId}`;
+      const response = await fetch(URL);
+      const data = await response.json();
+      console.log(data);
+      setRecipe(data.foundRecipe[0]);
+    };
+    fetchData();
+  }, []);
   // recipe rating turned to a percentage value
   const starPercentage = (recipe.rating / 5) * 100;
   // round up the percentage value + add the symbol

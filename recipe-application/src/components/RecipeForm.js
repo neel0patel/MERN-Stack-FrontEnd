@@ -91,25 +91,25 @@ export default class RecipeForm extends Component {
       document.getElementById("form-rating").value = "";
       document.getElementById("form-image").value = "";
 
-      //Sending data to live server
-      //   fetch("http://localhost:3000/recipes", {
-      //     method: "post",
-      //     redirect: "follow",
-      //     headers: {
-      //       Accept: "application/json",
-      //       "Content-Type": "application/json",
-      //     },
-      //     //Turning the object to json
-      //     body: JSON.stringify({
-      //       title: obj.title,
-      //       image: obj.image,
-      //       duration: obj.duration,
-      //       steps: obj.steps,
-      //       rating: obj.rating,
-      //     }),
-      //   }).then((res) => {
-      //     console.log("Data sent!");
-      //   });
+      // Sending data to live server
+      fetch("https://recipe-backend-mern.herokuapp.com/recipes/", {
+        method: "post",
+        redirect: "follow",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        //Turning the object to json
+        body: JSON.stringify({
+          title: obj.title,
+          image: obj.image,
+          duration: obj.duration,
+          steps: obj.steps,
+          rating: obj.rating,
+        }),
+      }).then((res) => {
+        console.log("Data sent!");
+      });
     }
   }
 
@@ -122,7 +122,7 @@ export default class RecipeForm extends Component {
             <input
               id="form-title"
               type="text"
-              placeholder="Enter the title"
+              placeholder="Enter the name"
               name="title"
               autoComplete="off"
             />

@@ -64,10 +64,9 @@ class Recipes extends Component {
                   {recipes &&
                     recipes.map((recipe) => (
                       <Link
-                        key={recipe.id}
+                        key={recipe._id}
                         to={{
-                          pathname: `/${recipe.id}`,
-                          singleRecipe: `${JSON.stringify(recipe)}`,
+                          pathname: `/${recipe._id}`,
                         }}
                       >
                         <li
