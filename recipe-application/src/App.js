@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar";
-import About from "./components/about";
-import Home from "./components/home";
-import Contact from "./components/contact";
-import Recipes from "./components/recipes";
-import Recipe from "./components/recipe";
+import Navbar from "./components//Navbar/navbar";
+import About from "./components/About/about";
+import Home from "./components/Home/home";
+import Contact from "./components/Contact/contact";
+import Recipes from "./components/Recipes/recipes";
+import Recipe from "./components/Recipe/recipe";
 
-import "./App.css";
+import "./index.css";
 
 function App() {
   return (

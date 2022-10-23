@@ -4,7 +4,7 @@ import "./recipes.css";
 
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import RecipeForm from "./RecipeForm";
+import RecipeForm from "../RecipeForm/RecipeForm";
 
 class Recipes extends Component {
   constructor() {
@@ -70,13 +70,18 @@ class Recipes extends Component {
                           pathname: `/${recipe._id}`,
                         }}
                       >
-                        <li
-                          className="recipe-item"
-                          value={recipe.title}
-                          onClick={this.fetchRecipe}
-                        >
-                          {recipe.name}
-                        </li>
+                        <div class="card" style={{width: "12em"}}>
+                            
+                              <img src={recipe.image} class="card-img-top" style={{maxWidth: "12em"}} alt={`${recipe.name}`} />
+
+                              <div class="card-body">
+                                <h2 class="card-title">{recipe.name}</h2>
+                                <p class="card-text">{recipe.rating} STARS </p>
+                                <p class="card-text">{recipe.difficulty}</p>
+                              </div>
+
+                        </div>
+                          
                       </Link>
                     ))}
                 </ul>
