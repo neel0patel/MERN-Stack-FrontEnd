@@ -71,7 +71,7 @@ class Recipes extends Component {
                       >
                         <li
                           className="recipe-item"
-                          value={recipe.title}
+                          value={recipe.name}
                           onClick={this.fetchRecipe}
                         >
                           {recipe.name}
