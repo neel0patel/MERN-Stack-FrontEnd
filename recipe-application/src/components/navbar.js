@@ -9,7 +9,7 @@ const Navbar = () => {
           data-toggle="collapse"
           data-target=".navbar-collapse.show"
         >
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand mb-0 h1" to="/">
             Bon APPetite
           </Link>
         </p>

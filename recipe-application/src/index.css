@@ -136,7 +136,7 @@ nav .nav-item a:hover {
 #recipes-right {
   background-color: white;
   border: 2px #eb6864 solid;
-  width: 60%;
+  width: 50%;
   height: auto;
   float: right;
   overflow: hidden;
@@ -284,7 +284,7 @@ nav .nav-item a:hover {
   border: 2px solid;
   color: black;
   padding: 10px;
-  width: 30%;
+  width: 40%;
   height: auto;
   float: left;
   overflow: auto;

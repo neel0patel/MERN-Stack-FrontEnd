@@ -4,9 +4,9 @@ import Navbar from "./components/navbar";
 import About from "./components/about";
 import Home from "./components/home";
 import Contact from "./components/contact";
-import Recipes from "./components/recipes";
-import recipe from "./components/recipe";
+import Recipes from "./components/recipes/recipes";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import Recipe from "./components/recipe";
 

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import Spinner from "../components/spinner";
+import Spinner from "../spinner";
 
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import RecipeForm from "./RecipeForm";
+import RecipeForm from "../RecipeForm";
+
+import "./recipes.css"
 
 class Recipes extends Component {
   constructor() {
@@ -60,23 +62,24 @@ class Recipes extends Component {
               {loading ? (
                 <Spinner />
               ) : (
-                <ul>
+                <ul className="list-group">
                   {recipes &&
                     recipes.map((recipe) => (
                       <Link
                         key={recipe.id}
                         to={{
-                          pathname: `/${recipe.id}`,
+                          pathname: `/${recipe._id}`,
                           singleRecipe: `${JSON.stringify(recipe)}`,
                         }}
                       >
-                        <li
-                          className="recipe-item"
-                          value={recipe.title}
-                          onClick={this.fetchRecipe}
-                        >
-                          {recipe.name}
-                        </li>
+                          <div class="card mt-2">
+                          <img src={recipe.image} class="card-img-top" alt="..."/>
+                          <div class="card-body">
+                            <h5 class="card-title">{recipe.name}</h5>
+                            <p class="card-text"> {recipe.rating} ☆ {recipe.difficulty} </p>
+                          </div>
+                          </div>
+    
                       </Link>
                     ))}
                 </ul>
