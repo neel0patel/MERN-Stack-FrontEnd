@@ -3,7 +3,7 @@ import Spinner from "../spinner";
 import "./recipes.css";
 
 import Axios from "axios";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import RecipeForm from "../RecipeForm/RecipeForm";
 
 class Recipes extends Component {
@@ -64,25 +64,23 @@ class Recipes extends Component {
                 <ul>
                   {recipes &&
                     recipes.map((recipe) => (
-                      <Link
-                        key={recipe._id}
-                        to={{
-                          pathname: `/${recipe._id}`,
-                        }}
-                      >
-                        <div class="card" style={{width: "12em"}}>
+
+                        <div key={recipe._id} class="card text-center mb-3" style={{width: "18em"}}>
                             
-                              <img src={recipe.image} class="card-img-top" style={{maxWidth: "12em"}} alt={`${recipe.name}`} />
+                              <img src={recipe.image} class="card-img-top" style={{maxWidth: "18em"}} alt={`${recipe.name}`} />
 
                               <div class="card-body">
+                          
                                 <h2 class="card-title">{recipe.name}</h2>
                                 <p class="card-text">{recipe.rating} STARS </p>
                                 <p class="card-text">{recipe.difficulty}</p>
+
+                                <a href={`/${recipe._id}`} class="btn btn-primary">View Recipe</a>
                               </div>
 
                         </div>
                           
-                      </Link>
+                      
                     ))}
                 </ul>
               )}
