@@ -1,4 +1,3 @@
-// import { urlencoded } from "body-parser";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./recipe.css";
@@ -12,6 +11,7 @@ const Recipe = () => {
       const URL = `https://recipe-backend-mern.herokuapp.com/recipes/${recipeId}`;
       const response = await fetch(URL);
       const data = await response.json();
+      console.log(data);
       //console.log(data);
       setRecipe(data);
     };
@@ -38,14 +38,23 @@ const Recipe = () => {
           style={{ backgroundImage: `url(${recipe.image})` }}
         ></div>
         <div className="recipe-details">
-          <h2 className="recipe-title">{recipe.name}</h2>
-          <div className="clear-title"></div>
+          <h2 className="recipe-name">{recipe.name}</h2>
+          <div className="clear-name"></div>
+
+          <p className="recipe-info">Cuisine:</p>
+          <p className="recipe-content">{recipe.cuisine}</p>
+
+          <p className="recipe-info">Serving Size:</p>
+          <p className="recipe-content">{recipe.serving}</p>
+
+          <p className="recipe-info">Ingredients:</p>
+          <p className="recipe-content">{recipe.ingredients}</p>
 
           <p className="recipe-info">Steps:</p>
           <p className="recipe-content recipe-steps">{recipe.steps}</p>
           <div className="recipe-details--bottom">
             <div className="recipe-details--ratings">
-              <p className="recipe-info">Difficulty:</p>
+              <p className="recipe-info">Rating:</p>
               <div id="stars-outer" style={{ display: "inline-block" }}>
                 <div
                   id="stars-inner"
@@ -54,8 +63,12 @@ const Recipe = () => {
               </div>
             </div>
             <div className="recipe-details--duration">
-              <p className="recipe-info">Duration:</p>
-              <p className="recipe-content">{recipe.duration}</p>
+              <p className="recipe-info">Prep Time:</p>
+              <p className="recipe-content">{recipe.prepTime}</p>
+            </div>
+            <div className="recipe-details--duration">
+              <p className="recipe-info">Cook Time:</p>
+              <p className="recipe-content">{recipe.cookTime}</p>
             </div>
           </div>
         </div>
