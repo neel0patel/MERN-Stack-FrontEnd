@@ -1,0 +1,25 @@
+#title h1 {
+  color: #f4a261;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+@media screen and (max-width: "480px") {
+  #title h1 {
+    font-size: 1.7em;
+  }
+}
+#img-holder {
+  text-align: center;
+}
+#meal {
+  width: 42.5%;
+}
+@media screen and (min-width: "1080px") {
+  #meal {
+    height: 400px;
+  }
+}
+#img-holder p {
+  padding-top: 10px;
+}
