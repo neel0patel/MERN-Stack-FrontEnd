@@ -17,6 +17,13 @@ const Recipe = () => {
     };
     fetchData();
   }, );
+
+  async function deleteRecipe(recipeId) {
+    await fetch(`https://recipe-backend-mern.herokuapp.com/recipes/${recipe._id}`, {
+      method: "DELETE" }
+      )
+    }
+  
   // recipe rating turned to a percentage value
   const starPercentage = (recipe.rating / 5) * 100;
   // round up the percentage value + add the symbol
@@ -50,6 +57,7 @@ const Recipe = () => {
             </div>
           </div>
         </div>
+        <button onClick={() => {deleteRecipe(); window.location.href='/recipes'}} className="btn-warning"> Delete Recipe </button>
       </div>
     </div>
   );
