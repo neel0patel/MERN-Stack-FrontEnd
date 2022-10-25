@@ -28,7 +28,6 @@ html {
   display: none;
 }
 
-<<<<<<< HEAD
 #recipes-right {
   background-color: white;
   border: 2px #eb6864 solid;
@@ -203,14 +202,12 @@ html {
 }
 
 /* Recipes */
-=======
 body {
   font-family: "Roboto", sans-serif;
   background: var(--color-bg);
   color: var(--color-secondary);
   line-height: 1.7;
 }
->>>>>>> 0cff5a334265f026ca19999a3928876858a03d1f
 
 h1,
 h2,
