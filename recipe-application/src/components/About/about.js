@@ -13,8 +13,9 @@ const About = () => {
       </div>
       <div id="container">
         <p>
-          This is a recipe app that'll allow you to create the best meals
-          around.
+          This is a recipe application that'll allow you to create the best
+          meals around while storing those recipes online for easy retrieval for
+          future use.
         </p>
       </div>
     </div>

@@ -1,0 +1,28 @@
+#about-title {
+  color: #e76f51;
+  text-align: center;
+  padding-top: 50px;
+}
+#about-title h1 {
+  padding-bottom: 20px;
+}
+@media screen and (max-width: "480px") {
+  #about-title h1 {
+    font-size: 1.7em;
+  }
+}
+#image-holder {
+  text-align: center;
+  padding-bottom: 10px;
+}
+#image-holder img {
+  width: 60%;
+}
+@media screen and (max-width: 720px) {
+  #image-holder img {
+    width: 70%;
+  }
+}
+#container {
+  text-align: center;
+}
