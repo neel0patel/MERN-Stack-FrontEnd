@@ -1,0 +1,24 @@
+nav {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  nav .logo {
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
+  nav .nav-item {
+    display: block !important;
+    border: 0;
+    padding: 0;
+  }
+  nav .nav-item a {
+    color: rgb(0, 0, 0) !important;
+  }
+  nav .nav-item a:hover {
+    color: rgba(128, 51, 204, 0.333) !important;
+  }
+  .nav-clear {
+    height: 59px;
+  }

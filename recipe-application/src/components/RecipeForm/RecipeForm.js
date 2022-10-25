@@ -120,44 +120,70 @@ export default class RecipeForm extends Component {
       <div id="recipes-right">
         <div id="recipes-form-holder">
           <form>
+
+            <div className="form-group"> 
             <input
               id="form-title"
               type="text"
               placeholder="Enter the name"
               name="title"
               autoComplete="off"
+              className="form-control"
             />
+            </div>
+
+            <div className="form-group"> 
             <input
               id="form-image"
               type="file"
               placeholder="Upload an image"
               name="image"
+              className="form-control-file"
             />
+            </div>
+
+            <div className="form-group"> 
             <input
               id="form-duration"
               type="text"
               placeholder="Enter the duration"
               name="duration"
               autoComplete="off"
+              className="form-control"
             />
+            </div>
+
+            <div className="form-group"> 
             <textarea
               id="form-steps"
               placeholder="Enter steps..."
               name="steps"
+              className="form-control"
+              rows={3}
             ></textarea>
+            </div>
+
+            <div className="form-group"> 
             <input
               id="form-rating"
               type="text"
               placeholder="Enter the difficulty between 0-5"
               name="rating"
+              className="form-control"
             />
+            </div>
+
+            <div className="form-group"> 
             <input
               id="form-button"
               type="button"
               value="Submit"
+              className="btn"
               onClick={this.showMessageAndSendData}
               onMouseEnter={this.getData}
             />
+            </div>
+
           </form>
           {showMe ? (
             <div id="message">

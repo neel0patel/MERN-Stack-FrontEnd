@@ -1,5 +1,7 @@
 /* RecipeForm */
-
+.form-control {
+  display: initial;
+}
 #recipes-right {
     background-color: white;
     border: 2px #eb6864 solid;
@@ -17,7 +19,7 @@
   }
   #recipes-right #recipes-form-holder {
     text-align: center;
-    padding: 20px 0;
+    padding: 1rem;
   }
   #recipes-right #recipes-form-holder #form-title {
     margin-bottom: 10px;
