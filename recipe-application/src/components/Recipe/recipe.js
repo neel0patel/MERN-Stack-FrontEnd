@@ -23,7 +23,6 @@ const Recipe = () => {
       method: "DELETE" }
       )
     }
-  });
   
   // recipe rating turned to a percentage value
   const starPercentage = (recipe.rating / 5) * 100;
