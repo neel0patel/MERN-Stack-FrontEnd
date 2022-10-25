@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./recipe.css";
 
 const Recipe = () => {
   const { recipeId } = useParams();
@@ -11,10 +12,11 @@ const Recipe = () => {
       const response = await fetch(URL);
       const data = await response.json();
       console.log(data);
+      //console.log(data);
       setRecipe(data);
     };
     fetchData();
-  }, []);
+  });
   // recipe rating turned to a percentage value
   const starPercentage = (recipe.rating / 5) * 100;
   // round up the percentage value + add the symbol
