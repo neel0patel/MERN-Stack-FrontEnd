@@ -12,11 +12,11 @@ const Recipe = () => {
       const URL = `https://recipe-backend-mern.herokuapp.com/recipes/${recipeId}`;
       const response = await fetch(URL);
       const data = await response.json();
-      console.log(data);
-      setRecipe(data.foundRecipe[0]);
+      //console.log(data);
+      setRecipe(data);
     };
     fetchData();
-  }, []);
+  }, );
   // recipe rating turned to a percentage value
   const starPercentage = (recipe.rating / 5) * 100;
   // round up the percentage value + add the symbol
