@@ -4,7 +4,7 @@ import "./recipes.css";
 
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import RecipeForm from "./RecipeForm";
+import RecipeForm from "../RecipeForm/RecipeForm";
 
 class Recipes extends Component {
   constructor() {
