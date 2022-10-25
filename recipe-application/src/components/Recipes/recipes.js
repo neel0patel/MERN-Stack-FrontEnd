@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Spinner from "../components/spinner";
+import Spinner from "../spinner";
+import "./recipes.css";
 
 import Axios from "axios";
 import { Link } from "react-router-dom";
