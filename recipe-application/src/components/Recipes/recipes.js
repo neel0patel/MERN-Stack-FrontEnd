@@ -64,40 +64,28 @@ class Recipes extends Component {
                 <ul>
                   {recipes &&
                     recipes.map((recipe) => (
-<<<<<<< HEAD:recipe-application/src/components/recipes.js
-                      <Link
+                      <div
                         key={recipe._id}
-                        to={{
-                          pathname: `/${recipe._id}`,
-                        }}
+                        class="card text-center mb-3"
+                        style={{ width: "18em" }}
                       >
-                        <li
-                          className="recipe-item"
-                          value={recipe.name}
-                          onClick={this.fetchRecipe}
-                        >
-                          {recipe.name}
-                        </li>
-                      </Link>
-=======
+                        <img
+                          src={recipe.image}
+                          class="card-img-top"
+                          style={{ maxWidth: "18em" }}
+                          alt={`${recipe.name}`}
+                        />
 
-                        <div key={recipe._id} class="card text-center mb-3" style={{width: "18em"}}>
-                            
-                              <img src={recipe.image} class="card-img-top" style={{maxWidth: "18em"}} alt={`${recipe.name}`} />
+                        <div class="card-body">
+                          <h2 class="card-title">{recipe.name}</h2>
+                          <p class="card-text">{recipe.rating} STARS </p>
+                          <p class="card-text">{recipe.difficulty}</p>
 
-                              <div class="card-body">
-                          
-                                <h2 class="card-title">{recipe.name}</h2>
-                                <p class="card-text">{recipe.rating} STARS </p>
-                                <p class="card-text">{recipe.difficulty}</p>
-
-                                <a href={`/${recipe._id}`} class="btn btn-primary">View Recipe</a>
-                              </div>
-
+                          <a href={`/${recipe._id}`} class="btn btn-primary">
+                            View Recipe
+                          </a>
                         </div>
-                          
-                      
->>>>>>> 2b5c3c3f6e46e668e99df5a8c34fe174980c86b7:recipe-application/src/components/Recipes/recipes.js
+                      </div>
                     ))}
                 </ul>
               )}
