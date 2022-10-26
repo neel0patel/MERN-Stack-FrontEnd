@@ -16,6 +16,7 @@ const Recipe = () => {
       setRecipe(data);
     };
     fetchData();
+
   },);
 
   async function deleteRecipe(recipeId) {

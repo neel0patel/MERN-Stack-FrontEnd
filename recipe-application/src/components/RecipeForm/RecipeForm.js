@@ -187,6 +187,8 @@ export default class RecipeForm extends Component {
               className="form-control-file"
             />
 
+            </div>
+            <div className="form-group"> 
             <textarea
               id="form-ingredients"
               placeholder="Enter the ingredients..."
@@ -199,6 +201,7 @@ export default class RecipeForm extends Component {
               name="prepTime"
               autoComplete="off"
             />
+
             <input
               id="form-cookTime"
               type="text"
