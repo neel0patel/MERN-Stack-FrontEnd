@@ -28,7 +28,7 @@ html {
   display: none;
 }
 
-#recipes-right {
+/* #recipes-right {
   background-color: white;
   border: 2px #eb6864 solid;
   width: 60%;
@@ -199,7 +199,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* Recipes */
 body {
