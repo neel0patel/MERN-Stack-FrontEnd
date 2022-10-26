@@ -6,6 +6,7 @@ import Home from "./components/Home/home";
 import Contact from "./components/Contact/contact";
 import Recipes from "./components/Recipes/recipes";
 import Recipe from "./components/Recipe/recipe";
+import Edit from "./components/Edit/edit";
 
 import "./index.css";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/:recipeId" element={<Recipe />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/edit" element={<Edit />} />
         </Routes>
       </Router>
     </div>
