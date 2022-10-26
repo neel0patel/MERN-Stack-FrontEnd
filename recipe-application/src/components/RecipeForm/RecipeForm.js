@@ -138,6 +138,8 @@ export default class RecipeForm extends Component {
       <div id="recipes-right">
         <div id="recipes-form-holder">
           <form>
+
+            <div className="form-group"> 
             <input
               id="form-name"
               type="text"
@@ -151,7 +153,11 @@ export default class RecipeForm extends Component {
               placeholder="Enter the cuisine"
               name="title"
               autoComplete="off"
+              className="form-control"
             />
+            </div>
+
+            <div className="form-group"> 
             <input
               id="form-serving"
               type="text"
@@ -164,8 +170,11 @@ export default class RecipeForm extends Component {
               type="file"
               placeholder="Upload an image"
               name="image"
+              className="form-control-file"
             />
 
+            </div>
+            <div className="form-group"> 
             <textarea
               id="form-ingredients"
               placeholder="Enter the ingredients..."
@@ -178,18 +187,28 @@ export default class RecipeForm extends Component {
               name="prepTime"
               autoComplete="off"
             />
+
             <input
               id="form-cookTime"
               type="text"
               placeholder="Enter the time it takes to cook the cuisine"
               name="cookTime"
               autoComplete="off"
+              className="form-control"
             />
+            </div>
+
+            <div className="form-group"> 
             <textarea
               id="form-steps"
               placeholder="Enter steps..."
               name="steps"
+              className="form-control"
+              rows={3}
             ></textarea>
+            </div>
+
+            <div className="form-group"> 
             <input
               id="form-difficulty"
               type="text"
@@ -201,14 +220,21 @@ export default class RecipeForm extends Component {
               type="text"
               placeholder="Rate the cuisine from 1-5"
               name="rating"
+              className="form-control"
             />
+            </div>
+
+            <div className="form-group"> 
             <input
               id="form-button"
               type="button"
               value="Submit"
+              className="btn"
               onClick={this.showMessageAndSendData}
               onMouseEnter={this.getData}
             />
+            </div>
+
           </form>
           {showMe ? (
             <div id="message">
