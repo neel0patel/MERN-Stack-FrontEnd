@@ -138,117 +138,100 @@ export default class RecipeForm extends Component {
       <div id="recipes-right">
         <div id="recipes-form-holder">
           <form>
-
-            <div className="form-group"> 
-            <input
-              id="form-name"
-              type="text"
-              placeholder="Enter the name"
-              name="name"
-              autoComplete="off"
-            />
-            <input
-              id="form-cuisine"
-              type="text"
-              placeholder="Enter the cuisine"
-              name="title"
-              autoComplete="off"
-              className="form-control"
-            />
+            <div className="form-group">
+              <input
+                id="form-name"
+                type="text"
+                placeholder="Enter the name"
+                name="name"
+                autoComplete="off"
+              />
+              <input
+                id="form-cuisine"
+                type="text"
+                placeholder="Enter the cuisine"
+                name="title"
+                autoComplete="off"
+                className="form-control"
+              />
             </div>
 
-            <div className="form-group"> 
-            <input
-              id="form-serving"
-              type="text"
-              placeholder="Enter the serving size"
-              name="serving"
-              autoComplete="off"
-            />
-            <input
-              id="form-serving"
-              type="text"
-              placeholder="Enter the serving size"
-              name="serving"
-              autoComplete="off"
-            />
-            <input
-              id="form-serving"
-              type="text"
-              placeholder="Enter the serving size"
-              name="serving"
-              autoComplete="off"
-            />
-            <input
-              id="form-image"
-              type="file"
-              placeholder="Upload an image"
-              name="image"
-              className="form-control-file"
-            />
-
+            <div className="form-group">
+              <input
+                id="form-serving"
+                type="text"
+                placeholder="Enter the serving size"
+                name="serving"
+                autoComplete="off"
+              />
+              <input
+                id="form-image"
+                type="file"
+                placeholder="Upload an image"
+                name="image"
+                className="form-control-file"
+              />
             </div>
-            <div className="form-group"> 
-            <textarea
-              id="form-ingredients"
-              placeholder="Enter the ingredients..."
-              name="ingredients"
-            ></textarea>
-            <input
-              id="form-prepTime"
-              type="text"
-              placeholder="Enter the prep time"
-              name="prepTime"
-              autoComplete="off"
-            />
+            <div className="form-group">
+              <textarea
+                id="form-ingredients"
+                placeholder="Enter the ingredients..."
+                name="ingredients"
+              ></textarea>
+              <input
+                id="form-prepTime"
+                type="text"
+                placeholder="Enter the prep time"
+                name="prepTime"
+                autoComplete="off"
+              />
 
-            <input
-              id="form-cookTime"
-              type="text"
-              placeholder="Enter the time it takes to cook the cuisine"
-              name="cookTime"
-              autoComplete="off"
-              className="form-control"
-            />
+              <input
+                id="form-cookTime"
+                type="text"
+                placeholder="Enter the time it takes to cook the cuisine"
+                name="cookTime"
+                autoComplete="off"
+                className="form-control"
+              />
             </div>
 
-            <div className="form-group"> 
-            <textarea
-              id="form-steps"
-              placeholder="Enter steps..."
-              name="steps"
-              className="form-control"
-              rows={3}
-            ></textarea>
+            <div className="form-group">
+              <textarea
+                id="form-steps"
+                placeholder="Enter steps..."
+                name="steps"
+                className="form-control"
+                rows={3}
+              ></textarea>
             </div>
 
-            <div className="form-group"> 
-            <input
-              id="form-difficulty"
-              type="text"
-              placeholder="Type in a difficulty: easy, medium, or hard"
-              name="difficulty"
-            />
-            <input
-              id="form-rating"
-              type="text"
-              placeholder="Rate the cuisine from 1-5"
-              name="rating"
-              className="form-control"
-            />
+            <div className="form-group">
+              <input
+                id="form-difficulty"
+                type="text"
+                placeholder="Type in a difficulty: easy, medium, or hard"
+                name="difficulty"
+              />
+              <input
+                id="form-rating"
+                type="text"
+                placeholder="Rate the cuisine from 1-5"
+                name="rating"
+                className="form-control"
+              />
             </div>
 
-            <div className="form-group"> 
-            <input
-              id="form-button"
-              type="button"
-              value="Submit"
-              className="btn"
-              onClick={this.showMessageAndSendData}
-              onMouseEnter={this.getData}
-            />
+            <div className="form-group">
+              <input
+                id="form-button"
+                type="button"
+                value="Submit"
+                className="btn"
+                onClick={this.showMessageAndSendData}
+                onMouseEnter={this.getData}
+              />
             </div>
-
           </form>
           {showMe ? (
             <div id="message">
