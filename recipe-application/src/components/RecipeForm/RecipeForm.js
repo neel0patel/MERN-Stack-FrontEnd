@@ -166,6 +166,20 @@ export default class RecipeForm extends Component {
               autoComplete="off"
             />
             <input
+              id="form-serving"
+              type="text"
+              placeholder="Enter the serving size"
+              name="serving"
+              autoComplete="off"
+            />
+            <input
+              id="form-serving"
+              type="text"
+              placeholder="Enter the serving size"
+              name="serving"
+              autoComplete="off"
+            />
+            <input
               id="form-image"
               type="file"
               placeholder="Upload an image"
