@@ -73,7 +73,7 @@ const Recipe = () => {
             </div>
           </div>
         </div>
-        <button onClick={() => { deleteRecipe() }} className="btn-warning"> Delete Recipe </button>
+        <button onClick={() => { deleteRecipe() }} className="btn btn-danger" type="submit">Delete Recipe</button>
       </div>
     </div>
   );
