@@ -4,7 +4,7 @@ import "./navbar.css";
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark ">
         <p
           className="logo"
           data-toggle="collapse"
