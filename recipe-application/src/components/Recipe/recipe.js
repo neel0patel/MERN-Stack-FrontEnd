@@ -27,6 +27,10 @@ const Recipe = () => {
       (window.location.href = '/recipes')
   }
 
+  async function editRecipe(recipeId) {
+    (window.location.href = '/edit')
+  }
+
   // recipe rating turned to a percentage value
   const starPercentage = (recipe.rating / 5) * 100;
   // round up the percentage value + add the symbol
@@ -65,15 +69,16 @@ const Recipe = () => {
             </div>
             <div className="recipe-details--duration">
               <p className="recipe-info">Prep Time:</p>
-              <p className="recipe-content">{recipe.prepTime}</p>
+              <p className="recipe-content">{recipe.prepTime} minutes</p>
             </div>
             <div className="recipe-details--duration">
               <p className="recipe-info">Cook Time:</p>
-              <p className="recipe-content">{recipe.cookTime}</p>
+              <p className="recipe-content">{recipe.cookTime} minutes</p>
             </div>
           </div>
         </div>
         <button onClick={() => { deleteRecipe() }} className="btn btn-danger" type="submit">Delete Recipe</button>
+        <button onClick={() => { editRecipe() }} className="btn btn-primary" type="submit">Edit Recipe</button>
       </div>
     </div>
   );
