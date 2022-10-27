@@ -8,6 +8,7 @@ export default class editRecipe extends Component {
       showMe: false,
       src: "",
       title: "",
+      recipeData: {},
       postData: false
     };
     this.showMessage = this.showMessage.bind(this);
@@ -19,8 +20,10 @@ export default class editRecipe extends Component {
     //Getting the object id from query string
     let params = (new URL(document.location)).searchParams;
     let id = params.get("id");
-  
+
     this.state.id= id
+
+    this.fetchData();
 
     //console.log(this.state)
   }
@@ -42,7 +45,7 @@ export default class editRecipe extends Component {
     this.showMessage();
     setTimeout(() => {
       this.sendData();
-      this.sendData.editData()
+      //this.sendData.updateRecipe();
     }, 1000);
   }
 
@@ -63,74 +66,59 @@ export default class editRecipe extends Component {
     }
   }
 
-  async sendData() {
+async fetchData() {
+  const URL = `https://recipe-backend-mern.herokuapp.com/recipes/${this.state.id}`;
+  const response = await fetch(URL);
+  const data = await response.json();
 
-    //NEED TO FETCH THE DATA AND FILL THE FORMS VALUES WITH WHAT IS THERE CURRENTLY TO THEN EDIT AND RE-SUBMIT 
+  this.state.recipeData = data;
+}; 
 
-    let { postData } = this.state;
+async sendData() {
 
-      // this one object contains all the data entered, inlcluding the image
-      let obj = {
-        name: this.state.id,
-        image: this.state.src,
-        prepTime: document.getElementById("form-prepTime").value,
-        steps: document.getElementById("form-steps").value,
-        rating: document.getElementById("form-rating").value,
-        ingredients: document.getElementById("form-ingredients").value,
-        cuisine: document.getElementById("form-cuisine").value,
-        serving: document.getElementById("form-serving").value,
-        cookTime: document.getElementById("form-cookTime").value,
-        difficulty: document.getElementById("form-difficulty").value,
-      };
-     
-      // reset input fields and the image src within the state
-      document.getElementById("form-name").value = "";
-      this.setState({ src: "" });
-      document.getElementById("form-prepTime").value = "";
-      document.getElementById("form-steps").value = "";
-      document.getElementById("form-rating").value = "";
-      document.getElementById("form-image").value = "";
-      document.getElementById("form-ingredients").value = "";
-      document.getElementById("form-cuisine").value = "";
-      document.getElementById("form-serving").value = "";
-      document.getElementById("form-cookTime").value = "";
-      document.getElementById("form-difficulty").value = "";
-
-      // Sending data to live server
-    //   editData() {
-    //   await fetch(`https://recipe-backend-mern.herokuapp.com/recipes/${this.state.id}`, {
-    //     method: "PUT",
-    //     // redirect: "follow",
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //       "Access-Control-Allow-Origin": "*",
-    //     },
-
-    //     //Turning the object to json
-    //     body: JSON.stringify({
-    //       name: obj.name,
-    //       image: obj.image,
-    //       prepTime: obj.prepTime,
-    //       steps: obj.steps,
-    //       rating: obj.rating,
-    //       ingredients: obj.ingredients,
-    //       cuisine: obj.cuisine,
-    //       serving: obj.serving,
-    //       cookTime: obj.cookTime,
-    //       difficulty: obj.difficulty,
-    //     }),
-    //   }).then(async (res) => {
-    //     const data = await res.json();
-    //     this.props.getNewRecipe(data);
-    //     console.log(data);
-    //   });
-    // }
+  let obj = {
+    name: document.getElementById("form-name").value,
+    image: this.state.src,
+    prepTime: document.getElementById("form-prepTime").value,
+    steps: document.getElementById("form-steps").value,
+    rating: document.getElementById("form-rating").value,
+    ingredients: document.getElementById("form-ingredients").value,
+    cuisine: document.getElementById("form-cuisine").value,
+    serving: document.getElementById("form-serving").value,
+    cookTime: document.getElementById("form-cookTime").value,
+    difficulty: document.getElementById("form-difficulty").value,
+  };
   
+    await fetch(`https://recipe-backend-mern.herokuapp.com/recipes/${this.state.id}`, {
+      method: "PUT",
+      headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+    //Turning the object to json
+    body: JSON.stringify({
+      name: obj.name,
+      image: obj.image,
+      prepTime: obj.prepTime,
+      steps: obj.steps,
+      rating: obj.rating,
+      ingredients: obj.ingredients,
+      cuisine: obj.cuisine,
+      serving: obj.serving,
+      cookTime: obj.cookTime,
+      difficulty: obj.difficulty,
+    }),
+  })
 }
 
   render() {
+    //const { recipeData } = this.state;
     const { showMe } = this.state;
+
+    //when this is logged it shows all of the correct recipe information... HOWEVER when you try to log this.state.recipeData it shits itself. I do not know why.
+    console.log(this.state)
+
     return (
       <div id="recipes-right">
         <div id="recipes-form-holder">
@@ -139,8 +127,12 @@ export default class editRecipe extends Component {
               <input
                 id="form-name"
                 type="text"
-                placeholder="Enter the name"
                 name="name"
+
+                //because of the aformentioned error I cannot set the value to what the recipe currently has as information !!! 
+
+                //defaultValue={`${this.state.recipeData.name}`}
+
                 autoComplete="off"
               />
               <input

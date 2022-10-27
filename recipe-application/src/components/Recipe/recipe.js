@@ -20,7 +20,7 @@ const Recipe = () => {
 
   },);
 
-  async function deleteRecipe(recipeId) {
+  async function deleteRecipe() {
     await fetch(`https://recipe-backend-mern.herokuapp.com/recipes/${recipe._id}`, {
       method: "DELETE"
     }
