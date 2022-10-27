@@ -8,24 +8,18 @@ export default class editRecipe extends Component {
       showMe: false,
       src: "",
       title: "",
-      recipeData: {},
-      postData: false
+      postData: false,
     };
     this.showMessage = this.showMessage.bind(this);
     this.showMessageAndSendData = this.showMessageAndSendData.bind(this);
     this.sendData = this.sendData.bind(this);
     this.getData = this.getData.bind(this);
-    //console.log(props)
 
-    //Getting the object id from query string
-    let params = (new URL(document.location)).searchParams;
+    let params = new URL(document.location).searchParams;
     let id = params.get("id");
 
-    this.state.id= id
-
+    this.state.id = id;
     this.fetchData();
-
-    //console.log(this.state)
   }
 
   // This will display a success message when the submit button has been clicked
@@ -39,16 +33,13 @@ export default class editRecipe extends Component {
       });
     }, 1500);
   }
-
   // This runs both showMessage and sendData when the button is clicked
   showMessageAndSendData() {
     this.showMessage();
     setTimeout(() => {
       this.sendData();
-      //this.sendData.updateRecipe();
     }, 1000);
   }
-
   // This method is going to take the image before the data is sent, turn it to a base64 text and save it in the state. After that I'd have...
   // to post request & save it within the collection; then fetch request, save the data in the state, then display it
   getData(files) {
@@ -63,62 +54,99 @@ export default class editRecipe extends Component {
       reader.readAsDataURL(file);
       console.log(this.state.src);
       this.setState({ postData: true });
+    } else {
+      let { postData } = this.state;
+      if (postData) return;
+      else {
+        alert(
+          "There was no file selected. Please upload an image or a placeholder will be used instead."
+        );
+        let question = prompt(
+          "Would you like to upload an image? If so then enter yes else enter no."
+        );
+
+        if (question === "yes") {
+          return;
+        } else {
+          this.setState({
+            src: "https://via.placeholder.com/150x150",
+          });
+          this.setState({ postDate: true });
+        }
+      }
     }
   }
+  async fetchData() {
+    const URL = `https://recipe-backend-mern.herokuapp.com/recipes/${this.state.id}`;
+    const response = await fetch(URL);
+    const data = await response.json();
 
-async fetchData() {
-  const URL = `https://recipe-backend-mern.herokuapp.com/recipes/${this.state.id}`;
-  const response = await fetch(URL);
-  const data = await response.json();
+    this.state.recipeData = data;
+  }
 
-  this.state.recipeData = data;
-}; 
+  async sendData() {
+    // this one object contains all the data entered, inlcluding the image
+    let obj = {
+      name: document.getElementById("form-name").value,
+      image: this.state.src,
+      prepTime: document.getElementById("form-prepTime").value,
+      steps: document.getElementById("form-steps").value,
+      rating: document.getElementById("form-rating").value,
+      ingredients: document.getElementById("form-ingredients").value,
+      cuisine: document.getElementById("form-cuisine").value,
+      serving: document.getElementById("form-serving").value,
+      cookTime: document.getElementById("form-cookTime").value,
+      difficulty: document.getElementById("form-difficulty").value,
+    };
+    //   this.props.getNewRecipe(obj);
 
-async sendData() {
+    // reset input fields and the image src within the state
+    document.getElementById("form-name").value = "";
+    this.setState({ src: "" });
+    document.getElementById("form-prepTime").value = "";
+    document.getElementById("form-steps").value = "";
+    document.getElementById("form-rating").value = "";
+    document.getElementById("form-image").value = "";
+    document.getElementById("form-ingredients").value = "";
+    document.getElementById("form-cuisine").value = "";
+    document.getElementById("form-serving").value = "";
+    document.getElementById("form-cookTime").value = "";
+    document.getElementById("form-difficulty").value = "";
 
-  let obj = {
-    name: document.getElementById("form-name").value,
-    image: this.state.src,
-    prepTime: document.getElementById("form-prepTime").value,
-    steps: document.getElementById("form-steps").value,
-    rating: document.getElementById("form-rating").value,
-    ingredients: document.getElementById("form-ingredients").value,
-    cuisine: document.getElementById("form-cuisine").value,
-    serving: document.getElementById("form-serving").value,
-    cookTime: document.getElementById("form-cookTime").value,
-    difficulty: document.getElementById("form-difficulty").value,
-  };
-  
-    await fetch(`https://recipe-backend-mern.herokuapp.com/recipes/${this.state.id}`, {
-      method: "PUT",
-      headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-    },
-    //Turning the object to json
-    body: JSON.stringify({
-      name: obj.name,
-      image: obj.image,
-      prepTime: obj.prepTime,
-      steps: obj.steps,
-      rating: obj.rating,
-      ingredients: obj.ingredients,
-      cuisine: obj.cuisine,
-      serving: obj.serving,
-      cookTime: obj.cookTime,
-      difficulty: obj.difficulty,
-    }),
-  })
-}
+    // Sending data to live server
+    await fetch(
+      `https://recipe-backend-mern.herokuapp.com/recipes/${this.state.id}`,
+      {
+        method: "PUT",
+        // redirect: "follow",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        //Turning the object to json
+        body: JSON.stringify({
+          name: obj.name,
+          image: obj.image,
+          prepTime: obj.prepTime,
+          steps: obj.steps,
+          rating: obj.rating,
+          ingredients: obj.ingredients,
+          cuisine: obj.cuisine,
+          serving: obj.serving,
+          cookTime: obj.cookTime,
+          difficulty: obj.difficulty,
+        }),
+      }
+    ).then(async (res) => {
+      const data = await res.json();
+      // this.props.editRecipe(data);
+      console.log(data);
+    });
+  }
 
   render() {
-    //const { recipeData } = this.state;
     const { showMe } = this.state;
-
-    //when this is logged it shows all of the correct recipe information... HOWEVER when you try to log this.state.recipeData it shits itself. I do not know why.
-    console.log(this.state)
-
     return (
       <div id="recipes-right">
         <div id="recipes-form-holder">
@@ -127,12 +155,8 @@ async sendData() {
               <input
                 id="form-name"
                 type="text"
+                placeholder="Enter the name"
                 name="name"
-
-                //because of the aformentioned error I cannot set the value to what the recipe currently has as information !!! 
-
-                //defaultValue={`${this.state.recipeData.name}`}
-
                 autoComplete="off"
               />
               <input
@@ -224,7 +248,9 @@ async sendData() {
           </form>
           {showMe ? (
             <div id="message">
-              <h3>Recipe successfully updated!</h3>
+              <h3>
+                Recipe successfully updated, click on recipes to check it out!
+              </h3>
             </div>
           ) : null}
         </div>
@@ -232,4 +258,3 @@ async sendData() {
     );
   }
 }
-
