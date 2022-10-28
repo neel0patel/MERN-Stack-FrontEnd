@@ -38,7 +38,7 @@ export default class editRecipe extends Component {
     this.showMessage();
     setTimeout(() => {
       this.sendData();
-    }, 1000);
+    }, 5000);
   }
   // This method is going to take the image before the data is sent, turn it to a base64 text and save it in the state. After that I'd have...
   // to post request & save it within the collection; then fetch request, save the data in the state, then display it
