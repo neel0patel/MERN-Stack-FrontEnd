@@ -148,8 +148,8 @@ export default class editRecipe extends Component {
   render() {
     const { showMe } = this.state;
     return (
-      <div id="recipes-right">
-        <div id="recipes-form-holder">
+      <div id="recipes-eright">
+        <div id="recipes-eform-holder">
           <form>
             <div className="form-group">
               <input
