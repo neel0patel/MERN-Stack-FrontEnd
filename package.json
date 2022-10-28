@@ -23,7 +23,8 @@
     "stream": "^0.0.2",
     "web-vitals": "^2.1.4",
     "zlib": "^1.0.5",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "nodemon": "^2.0.20"
   },
   "scripts": {
     "start": "react-scripts start",
