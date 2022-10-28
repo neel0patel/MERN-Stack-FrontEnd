@@ -23,7 +23,7 @@
     "stream": "^0.0.2",
     "web-vitals": "^2.1.4",
     "zlib": "^1.0.5",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "ng build --prod",
     "nodemon": "^2.0.20"
   },
   "scripts": {
