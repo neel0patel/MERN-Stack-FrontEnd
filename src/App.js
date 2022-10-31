@@ -6,7 +6,7 @@ import Home from "./components/Home/home";
 import Contact from "./components/Contact/contact";
 import Recipes from "./components/Recipes/recipes";
 import Recipe from "./components/Recipe/recipe";
-import Edit from "./components/Edit/editRecipe";
+import Edit from "./components/Edit/edit";
 
 import "./index.css";
 
