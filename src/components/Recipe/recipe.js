@@ -15,9 +15,9 @@ const Recipe = () => {
       setRecipe(data);
     };
     fetchData();
-  });
+  }, []);
 
-  async function deleteRecipe(recipeId) {
+  async function deleteRecipe() {
     await fetch(
       `https://recipe-backend-mern.herokuapp.com/recipes/${recipe._id}`,
       {
@@ -26,8 +26,10 @@ const Recipe = () => {
     )((window.location.href = "/recipes"));
   }
 
-  async function editRecipe(recipeId) {
-    window.location.href = "/edit";
+  async function Edit() {
+    //console.log(recipeId)
+
+    window.location.href = `/edit?id=${recipe._id}`;
   }
 
   // recipe rating turned to a percentage value
@@ -87,7 +89,7 @@ const Recipe = () => {
         </button>
         <button
           onClick={() => {
-            editRecipe();
+            Edit(recipe._id);
           }}
           className="btn btn-primary"
           type="submit"
