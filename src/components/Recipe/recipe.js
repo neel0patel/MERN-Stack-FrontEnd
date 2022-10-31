@@ -11,24 +11,23 @@ const Recipe = () => {
       const URL = `https://recipe-backend-mern.herokuapp.com/recipes/${recipeId}`;
       const response = await fetch(URL);
       const data = await response.json();
-      console.log(data);
       //console.log(data);
       setRecipe(data);
     };
     fetchData();
-
-  },);
+  });
 
   async function deleteRecipe(recipeId) {
-    await fetch(`https://recipe-backend-mern.herokuapp.com/recipes/${recipe._id}`, {
-      method: "DELETE"
-    }
-    )
-      (window.location.href = '/recipes')
+    await fetch(
+      `https://recipe-backend-mern.herokuapp.com/recipes/${recipe._id}`,
+      {
+        method: "DELETE",
+      }
+    )((window.location.href = "/recipes"));
   }
 
   async function editRecipe(recipeId) {
-    (window.location.href = '/edit')
+    window.location.href = "/edit";
   }
 
   // recipe rating turned to a percentage value
@@ -77,8 +76,24 @@ const Recipe = () => {
             </div>
           </div>
         </div>
-        <button onClick={() => { deleteRecipe() }} className="btn btn-danger" type="submit">Delete Recipe</button>
-        <button onClick={() => { editRecipe() }} className="btn btn-primary" type="submit">Edit Recipe</button>
+        <button
+          onClick={() => {
+            deleteRecipe();
+          }}
+          className="btn btn-danger"
+          type="submit"
+        >
+          Delete Recipe
+        </button>
+        <button
+          onClick={() => {
+            editRecipe();
+          }}
+          className="btn btn-primary"
+          type="submit"
+        >
+          Edit Recipe
+        </button>
       </div>
     </div>
   );
