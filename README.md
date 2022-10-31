@@ -4,4 +4,6 @@ Make your favorite meals with the help of our recipe maker/finder. find easy to 
 
 Backend Repo: https://github.com/Thomas-Christian/MERN
 
-Issues: Problems with file structure causing heroku not an option to host. Localhost works to the database currently looking for a solution to remedy the problem.
+HEROKU: https://mern-recipe.herokuapp.com/
+
+Issues: Problems with file structure causing heroku not an option to host. Localhost works to the database currently looking for a solution to remedy the problem. RESOLVED 10/29
