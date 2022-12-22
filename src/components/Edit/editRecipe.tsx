@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./editRecipe.css";
 
 export default class editRecipe extends Component {
-  constructor(props) {
+  document: any;
+  constructor(props: any) {
     super(props);
     this.state = {
       showMe: false,
@@ -15,7 +16,7 @@ export default class editRecipe extends Component {
     this.sendData = this.sendData.bind(this);
     this.getData = this.getData.bind(this);
 
-    let params = new URL(document.location).searchParams;
+    let params = new URL(this.document.location).searchParams;
     let id = params.get("id");
 
     this.state.id = id;
@@ -42,11 +43,11 @@ export default class editRecipe extends Component {
   }
   // This method is going to take the image before the data is sent, turn it to a base64 text and save it in the state. After that I'd have...
   // to post request & save it within the collection; then fetch request, save the data in the state, then display it
-  getData(files) {
-    let file = document.getElementById("form-image").files[0];
+  getData(_files: any) {
+    let file = this.document.getElementById("form-image").files[0];
     if (file) {
       let reader = new FileReader();
-      reader.onload = ((theFile) => {
+      reader.onload = ((_theFile) => {
         return (e) => {
           this.setState({ src: e.target.result });
         };
@@ -55,7 +56,7 @@ export default class editRecipe extends Component {
       console.log(this.state.src);
       this.setState({ postData: true });
     } else {
-      let { postData } = this.state;
+      let postData: any = this.state;
       if (postData) return;
       else {
         alert(
@@ -87,16 +88,16 @@ export default class editRecipe extends Component {
   async sendData() {
     // this one object contains all the data entered, inlcluding the image
     let obj = {
-      name: document.getElementById("form-name").value,
+      name: document.getElementById("form-name")?.focus?.(),
       image: this.state.src,
-      prepTime: document.getElementById("form-prepTime").value,
-      steps: document.getElementById("form-steps").value,
-      rating: document.getElementById("form-rating").value,
-      ingredients: document.getElementById("form-ingredients").value,
-      cuisine: document.getElementById("form-cuisine").value,
-      serving: document.getElementById("form-serving").value,
-      cookTime: document.getElementById("form-cookTime").value,
-      difficulty: document.getElementById("form-difficulty").value,
+      prepTime: document.getElementById("form-prepTime")?.focus?.(),
+      steps: document.getElementById("form-steps")?.focus?.(),
+      rating: document.getElementById("form-rating")?.focus?.(),
+      ingredients: document.getElementById("form-ingredients")?.focus?.(),
+      cuisine: document.getElementById("form-cuisine")?.focus?.(),
+      serving: document.getElementById("form-serving")?.focus?.(),
+      cookTime: document.getElementById("form-cookTime")?.focus?.(),
+      difficulty: document.getElementById("form-difficulty")?.focus?.(),
     };
     //   this.props.getNewRecipe(obj);
 
@@ -146,7 +147,7 @@ export default class editRecipe extends Component {
   }
 
   render() {
-    const { showMe } = this.state;
+    const showMe: any = this.state;
     return (
       <div id="recipes-eright">
         <div id="recipes-eform-holder">

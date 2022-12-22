@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./RecipeForm.css";
 
 export default class RecipeForm extends Component {
-  constructor(props) {
+  [x: string]: any;
+  constructor(props: {} | Readonly<{}>) {
     super(props);
     this.state = {
       showMe: false,
@@ -36,8 +37,8 @@ export default class RecipeForm extends Component {
   }
   // This method is going to take the image before the data is sent, turn it to a base64 text and save it in the state. After that I'd have...
   // to post request & save it within the collection; then fetch request, save the data in the state, then display it
-  getData(files) {
-    let file = document.getElementById("form-image").files[0];
+  getData(files: any) {
+    let file = this.document.getElementById("form-image").files[0];
     if (file) {
       let reader = new FileReader();
       reader.onload = ((theFile) => {

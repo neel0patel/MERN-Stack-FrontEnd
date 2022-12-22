@@ -20,6 +20,7 @@
     "react-scripts": "^5.0.1",
     "start": "^5.1.0",
     "stream": "^0.0.2",
+    "typescript": "^4.9.4",
     "web-vitals": "^3.0.4",
     "zlib": "^1.0.5"
   },
@@ -27,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "builds": "npx tsc"
   },
   "browserslist": {
     "production": [
@@ -40,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
   }
 }
