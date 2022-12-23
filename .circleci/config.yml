@@ -1,17 +1,14 @@
-version: 2.1
+version: '2.1'
 orbs:
-  eb: circleci/aws-elastic-beanstalk@2.0.1
-  node: circleci/node@4.7.0
+  eb: circleci/aws-elastic-beanstalk@1.0.0
+  node: circleci/node@4.1.0
 workflows:
   elastic-beanstalk-workflow:
     jobs:
-      - node/test:
-#           app-dir: ~/project/backend
+      - node/test
       - eb/deploy:
-          app-dir: ~/project/backend
           context: aws-creds
-          application-name: Project
-          environment-name: project-env
+          environment-name: my-app
           filters:
             branches:
               only:
@@ -19,3 +16,4 @@ workflows:
           label: version-<<pipeline.number>>
           requires:
             - node/test
+
